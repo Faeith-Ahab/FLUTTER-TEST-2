@@ -1,9 +1,10 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application/main.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +32,49 @@ class LoginScreen extends StatelessWidget {
 
               const SizedBox(height: 60),
 
-              // Login Form
+              // Sign-up Form
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Email Field with Custom Border and Cursor Color
+                    // Full Name Field
                     TextField(
-                      cursorColor: const Color.fromARGB(255, 252, 116, 116), // Custom cursor color
+                      cursorColor: const Color.fromARGB(255, 252, 116, 116),
+                      decoration: InputDecoration(
+                        labelText: 'Full Name',
+                        labelStyle: const TextStyle(
+                          fontSize: 16,
+                          color: Color.fromARGB(255, 252, 172, 164),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 252, 116, 116),
+                            width: 2,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 252, 116, 116),
+                            width: 2,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 252, 116, 116),
+                            width: 2,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+
+                    // Email Field
+                    TextField(
+                      cursorColor: const Color.fromARGB(255, 252, 116, 116),
                       decoration: InputDecoration(
                         labelText: 'Email',
                         labelStyle: const TextStyle(
@@ -71,9 +106,9 @@ class LoginScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
 
-                    // Password Field with Custom Border and Cursor Color
+                    // Password Field
                     TextField(
-                      cursorColor: const Color.fromARGB(255, 252, 116, 116), // Custom cursor color
+                      cursorColor: const Color.fromARGB(255, 252, 116, 116),
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'Password',
@@ -106,12 +141,12 @@ class LoginScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 30),
 
-                    // Login Button
+                    // Sign-up Button
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
-                          // Handle login logic
+                          // Handle sign-up logic
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color.fromARGB(255, 252, 116, 116),
@@ -125,10 +160,9 @@ class LoginScreen extends StatelessWidget {
                           ),
                           elevation: 0,
                           splashFactory: InkRipple.splashFactory,
-                          overlayColor: const Color.fromARGB(255, 239, 232, 232),
                         ),
                         child: const Text(
-                          'LOGIN',
+                          'SIGN UP',
                           style: TextStyle(color: Colors.white, fontSize: 20),
                         ),
                       ),
@@ -136,27 +170,30 @@ class LoginScreen extends StatelessWidget {
 
                     const SizedBox(height: 20),
 
-                    // Sign-up Prompt
-                    const Center(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            'Don\'t have an account?',
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 49, 46, 46),
-                              fontSize: 14,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          Text(
-                            'Register Here',
+                    // Login Prompt
+                    Center(
+                      child: InkWell(
+                        onTap: () {
+                          // Navigate to Login Screen
+                        },
+                        child: const Text.rich(
+                          TextSpan(
+                            text: 'Already have an account? ',
                             style: TextStyle(
                               color: Color.fromARGB(255, 252, 116, 116),
                               fontSize: 14,
                             ),
+                            children: [
+                              TextSpan(
+                                text: 'Login Here',
+                                style: TextStyle(
+                                  fontStyle: FontStyle.italic,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   ],
@@ -168,4 +205,8 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+void main() {
+  runApp(const MyApp());
 }

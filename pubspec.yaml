@@ -32,6 +32,12 @@ flutter:
     - assets/images/fox_logo.png
     - assets/images/fx_logo.png
     - assets/images/screen_one.png
-    - assets/images/on_hoover_over_input_field.png
+    - assets/images/login_page.png 
+    - assets/images/on_hoover_over_input_field_one.png
+    - assets/images/on_hoover_over_input_field_two.png
     - assets/images/on_hoover_over_login_button.png
+    - assets/images/sign_up_page_on _hoover.png
+    - assets/images/sign_up_page.png
+
+
     
